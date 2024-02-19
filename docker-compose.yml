@@ -1,0 +1,45 @@
+version: '3.2'
+
+services:
+    laravel_nginx:
+        image: nginx:latest
+        container_name: l_nginx
+        ports:
+            - "1111:80"
+        volumes:
+            - .:/var/www/laravel-test:rw
+            - ./docker/nginx/laravel_nginx.conf:/etc/nginx/conf.d/laravel_nginx.conf
+
+
+    laravel_php:
+        container_name: l_php
+        build:
+            context: docker/php
+        ports:
+            - "2222:9000"
+        working_dir: /var/www/laravel-test
+        volumes:
+            - .:/var/www/laravel-test:rw
+
+    laravel_mysql:
+        image: mysql:8.0
+        container_name: l_mysql
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_DATABASE=laravel
+            - MYSQL_USER=laravel
+            - MYSQL_PASSWORD=laravel
+            - MYSQL_ROOT_PASSWORD=laravel
+            - TZ=GMT+2
+
+        volumes:
+            - laravel-mysql-data:/var/lib/mysql:rw
+            #створюємо volume  вручну.по команді в консолі:docker volume create --name=laravel-pg-data
+            #по цій команді створюєтьтся папка до якої нам потрібно звернутись через конфіг volumes.
+            #крім того створені врочну volumes треба записувати на верхній рівень і оголошувати як external.
+
+volumes:
+    laravel-mysql-data:
+        external:
+            name: laravel-mysql-data
