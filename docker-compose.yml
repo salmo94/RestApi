@@ -35,9 +35,7 @@ services:
 
         volumes:
             - laravel-mysql-data:/var/lib/mysql:rw
-            #створюємо volume  вручну.по команді в консолі:docker volume create --name=laravel-pg-data
-            #по цій команді створюєтьтся папка до якої нам потрібно звернутись через конфіг volumes.
-            #крім того створені врочну volumes треба записувати на верхній рівень і оголошувати як external.
+
 
 volumes:
     laravel-mysql-data:

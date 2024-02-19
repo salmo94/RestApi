@@ -9,7 +9,7 @@ Test  task for DevOcean company
 ### 1.Do git clone project:
 
 
-### If you have locally installed nginx, MYSQL, or php, please replace the ports in the install.sh file.
+### If you have locally installed nginx, MYSQL, or php, please replace the ports in docker-compose.yml file.
 
 ### 2.Create docker volume:
 
