@@ -40,8 +40,6 @@ Route::group(['middleware' => ['auth:sanctum', 'userValid']], function () {
     });
 });
 
-Route::get('/sanctum/csrf-cookie', [LoginController::class, 'csrf']);
-
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'save']);
 

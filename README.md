@@ -28,12 +28,19 @@ docker exec -it l_php bash
 php artisan migrate
 
 ### 6.Fill the database with new records.
-If you want to create a custom user with an admin role, fill in the empty values;
+ php artisan db:seed --class=DatabaseSeeder
 
-LOGIN_ADMIN= PASSWORD_ADMIN= EMAIL_ADMIN= php artisan db:seed --class=DatabaseSeeder
 
-OR just run: php artisan db:seed --class=DatabaseSeeder    and user will create automatically
+### 7.Register your first user using the following path:
+http://laravel-test.docker:1111/api/register
+### And don't forget to add to the header: 
+#### Accept: application/json.
+
+After that, log in with your new email and password.
+You will receive a token that will initialize you.
+
+Changing the role to admin needs to be done manually.
 
 ## The API documentation and database schema are located in the "documentation" folder at the root of the project
-##  Swagger documention you can find here:
+##  Swagger documentation you can find here:
 http://laravel-test.docker:1111/api/documentation

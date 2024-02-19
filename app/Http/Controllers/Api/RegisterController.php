@@ -45,8 +45,7 @@ class RegisterController extends Controller
         $user = User::create($validated);
         if ($user) {
             Auth::loginUsingId($user->id);
-            $token = $user->createToken('auth_token')->plainTextToken;
-            return response()->json(['token' => $token, 'message' => 'User registered successfully'], 201);
+            return response()->json(['message' => 'User registered successfully'], 201);
         }
         return response()->json(['message' => 'Error saving user'], 422);
     }
