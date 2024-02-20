@@ -5,11 +5,12 @@ Test  task for DevOcean company
 
 
 ## How to install project
-### 1.Copy .env.example to your .env file
 
-### 2.Do git clone project:
+
+### 1.Do git clone project:
 git clone https://github.com/salmo94/RestApi.git
 
+### 2.Copy .env.example to your .env file
 
 ### If you have locally installed nginx, MYSQL, or php, please replace the ports in docker-compose.yml file.
 
