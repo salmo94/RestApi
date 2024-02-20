@@ -5,33 +5,34 @@ Test  task for DevOcean company
 
 
 ## How to install project
+### 1.Copy .env.example to your .env file
 
-### 1.Do git clone project:
+### 2.Do git clone project:
 git clone https://github.com/salmo94/RestApi.git
 
 
 ### If you have locally installed nginx, MYSQL, or php, please replace the ports in docker-compose.yml file.
 
-### 2.Create docker volume:
+### 3.Create docker volume:
 
 docker volume create --name=laravel-mysql-data
 
-### 3.To set up the project, execute the following command in you command line:
+### 4.To set up the project, execute the following command in you command line:
 ./install.sh
 
 This command will create a project with all dependencies. 
 
-### 4.After installing the project, enter your Docker container:
+### 5.After installing the project, enter your Docker container:
 docker exec -it l_php bash
 
-### 5.Do migration:
+### 6.Do migration:
 php artisan migrate
 
-### 6.Fill the database with new records.
+### 7.Fill the database with new records.
  php artisan db:seed --class=DatabaseSeeder
 
 
-### 7.Register your first user using the following path:
+### 8.Register your first user using the following path:
 http://laravel-test.docker:1111/api/register
 ### And don't forget to add to the header: 
 #### Accept: application/json.
